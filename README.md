@@ -12,10 +12,12 @@ Seu objetivo é disponibilizar exemplos práticos e organizados que evidenciem a
 
 
 ## Workpage do Portifólio
-<img width="450" height="836" alt="image" src="https://github.com/user-attachments/assets/36616bda-278f-4647-aa95-687505631823" />
+<img width="355" height="667" alt="image" src="https://github.com/user-attachments/assets/a14285af-36bc-44d8-984b-39c101fd1787" />
+
 
 
 ## Página Sobre do Portifólio
-<img width="488" height="623" alt="image" src="https://github.com/user-attachments/assets/a66aa946-cc46-4c2a-8512-5159cf993699" />
+<img width="355" height="454" alt="image" src="https://github.com/user-attachments/assets/89c14274-1286-43a6-abbf-727bdac332af" />
+
 
 
