@@ -1,24 +1,19 @@
-// Wait for DOM to be fully loaded
+// Aguarda o DOM ser totalmente carregado
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
+    // Inicializa todas as funcionalidades
     initMobileNavigation();
-    
-    // Smooth scrolling for anchor links
     initSmoothScrolling();
-    
-    // Active navigation link highlighting
     initActiveNavigation();
-    
-    // Card hover effects enhancement
     initCardEffects();
-    
-    // Image error handling
     initImageErrorHandling();
+    initPageLoadAnimations();
+    initScrollAnimations();
+    initTypingAnimation();
+    initParallaxEffects();
+    initAdvancedInteractions();
 });
 
-/**
- * Initialize mobile navigation functionality
- */
+
 function initMobileNavigation() {
     try {
         const navToggle = document.getElementById('nav-toggle');
@@ -26,12 +21,12 @@ function initMobileNavigation() {
         
         if (navToggle && navMenu) {
             navToggle.addEventListener('click', function() {
-                // Toggle active class on navigation menu
+                // Alterna a classe ativa no menu de navegação
                 navMenu.classList.toggle('active');
                 navToggle.classList.toggle('active');
             });
 
-            // Close mobile menu when clicking on nav links
+            // Fecha o menu mobile ao clicar nos links de navegação
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -40,7 +35,7 @@ function initMobileNavigation() {
                 });
             });
 
-            // Close mobile menu when clicking outside
+            // Fecha o menu mobile ao clicar fora dele
             document.addEventListener('click', function(event) {
                 const isClickInsideNav = navMenu.contains(event.target) || navToggle.contains(event.target);
                 
@@ -55,9 +50,7 @@ function initMobileNavigation() {
     }
 }
 
-/**
- * Initialize smooth scrolling for anchor links
- */
+
 function initSmoothScrolling() {
     try {
         const anchorLinks = document.querySelectorAll('a[href^="#"]');
@@ -66,7 +59,7 @@ function initSmoothScrolling() {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 
-                // Skip if href is just "#"
+                // Pula se o href for apenas "#"
                 if (href === '#') return;
                 
                 const targetElement = document.querySelector(href);
@@ -89,9 +82,7 @@ function initSmoothScrolling() {
     }
 }
 
-/**
- * Initialize active navigation link highlighting based on current page
- */
+
 function initActiveNavigation() {
     try {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -100,10 +91,10 @@ function initActiveNavigation() {
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
             
-            // Remove existing active class
+            // Remove a classe ativa existente
             link.classList.remove('active');
             
-            // Add active class to current page link
+            // Adiciona a classe ativa ao link da página atual
             if (linkHref === currentPage || 
                 (currentPage === '' && linkHref === 'index.html') ||
                 (currentPage === 'index.html' && linkHref === 'index.html') ||
@@ -116,27 +107,25 @@ function initActiveNavigation() {
     }
 }
 
-/**
- * Initialize enhanced card effects
- */
+
 function initCardEffects() {
     try {
         const cards = document.querySelectorAll('.card');
         
         cards.forEach(card => {
-            // Add mouse enter effect
+            // Adiciona efeito ao passar o mouse
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-8px) scale(1.02)';
             });
             
-            // Add mouse leave effect
+            // Adiciona efeito ao retirar o mouse
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
             
-            // Add click effect for better mobile interaction
+            // Adiciona efeito de clique para melhor interação mobile
             card.addEventListener('click', function() {
-                // Add a subtle pulse effect
+                // Adiciona um efeito sutil de pulso
                 this.style.transform = 'translateY(-8px) scale(0.98)';
                 
                 setTimeout(() => {
@@ -149,19 +138,17 @@ function initCardEffects() {
     }
 }
 
-/**
- * Initialize image error handling
- */
+
 function initImageErrorHandling() {
     try {
         const images = document.querySelectorAll('img');
         
         images.forEach(img => {
-            // If image already has an error handler, skip
+            // Se a imagem já tem um manipulador de erro, pula
             if (img.hasAttribute('onerror')) return;
             
             img.addEventListener('error', function() {
-                // Create a placeholder div with gradient background
+                // Cria um div placeholder com fundo gradiente
                 const placeholder = document.createElement('div');
                 placeholder.style.cssText = `
                     width: 100%;
@@ -178,7 +165,7 @@ function initImageErrorHandling() {
                 `;
                 placeholder.textContent = this.alt || 'Imagem não disponível';
                 
-                // Replace image with placeholder
+                // Substitui a imagem pelo placeholder
                 if (this.parentNode) {
                     this.parentNode.replaceChild(placeholder, this);
                 }
@@ -189,9 +176,7 @@ function initImageErrorHandling() {
     }
 }
 
-/**
- * Utility function to debounce function calls
- */
+
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -204,12 +189,10 @@ function debounce(func, wait) {
     };
 }
 
-/**
- * Initialize scroll-based animations (optional enhancement)
- */
+
 function initScrollAnimations() {
     try {
-        // Intersection Observer for fade-in animations
+        // Intersection Observer para animações de fade-in
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -224,7 +207,7 @@ function initScrollAnimations() {
             });
         }, observerOptions);
         
-        // Observe elements for animation
+        // Observa elementos para animação
         const animatedElements = document.querySelectorAll('.card, .timeline-item, .skill-category');
         animatedElements.forEach(el => {
             el.style.opacity = '0';
@@ -237,18 +220,16 @@ function initScrollAnimations() {
     }
 }
 
-/**
- * Initialize theme toggle (future enhancement)
- */
+
 function initThemeToggle() {
     try {
-        // This function can be expanded to add light/dark theme toggle
-        // For now, it's a placeholder for future enhancement
+        // Esta função pode ser expandida para adicionar alternância de tema claro/escuro
+        // Por enquanto, é um placeholder para futuras melhorias
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
         
-        // Listen for changes in system theme preference
+        // Escuta mudanças na preferência de tema do sistema
         prefersDark.addEventListener('change', (e) => {
-            // Future: implement theme switching logic
+            // Futuro: implementar lógica de alternância de tema
             console.log('System theme changed to:', e.matches ? 'dark' : 'light');
         });
     } catch (error) {
@@ -256,12 +237,10 @@ function initThemeToggle() {
     }
 }
 
-/**
- * Initialize performance optimizations
- */
+
 function initPerformanceOptimizations() {
     try {
-        // Lazy loading for images (if not natively supported)
+        // Carregamento lazy para imagens (se não suportado nativamente)
         if ('loading' in HTMLImageElement.prototype) {
             const images = document.querySelectorAll('img');
             images.forEach(img => {
@@ -269,7 +248,7 @@ function initPerformanceOptimizations() {
             });
         }
         
-        // Preload critical resources
+        // Pré-carrega recursos críticos
         const criticalResources = [
             'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
         ];
@@ -286,16 +265,16 @@ function initPerformanceOptimizations() {
     }
 }
 
-// Initialize additional features when page is fully loaded
+// Inicializa funcionalidades adicionais quando a página estiver totalmente carregada
 window.addEventListener('load', function() {
     initScrollAnimations();
     initThemeToggle();
     initPerformanceOptimizations();
 });
 
-// Handle resize events
+// Manipula eventos de redimensionamento
 window.addEventListener('resize', debounce(function() {
-    // Close mobile menu on resize to larger screen
+    // Fecha o menu mobile ao redimensionar para tela maior
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     
@@ -305,11 +284,275 @@ window.addEventListener('resize', debounce(function() {
     }
 }, 250));
 
-// Export functions for potential external use
+
+function initPageLoadAnimations() {
+    try {
+        // Adiciona classes de animação aos elementos
+        const heroTitle = document.querySelector('.hero-title');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        const heroDescription = document.querySelector('.hero-description');
+        const sectionTitles = document.querySelectorAll('.section-title');
+        
+        if (heroTitle) heroTitle.classList.add('fade-in');
+        if (heroSubtitle) heroSubtitle.classList.add('fade-in', 'fade-in-delay-1');
+        if (heroDescription) heroDescription.classList.add('fade-in', 'fade-in-delay-2');
+        
+        sectionTitles.forEach((title, index) => {
+            title.classList.add('fade-in', `fade-in-delay-${Math.min(index + 1, 4)}`);
+        });
+        
+        // Adiciona animação escalonada aos cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 500 + (index * 100));
+        });
+        
+    } catch (error) {
+        console.error('Error initializing page load animations:', error);
+    }
+}
+
+
+function initTypingAnimation() {
+    try {
+        const heroTitle = document.querySelector('.hero-title');
+        if (!heroTitle) return;
+        
+        const originalText = heroTitle.textContent;
+        const words = originalText.split(' ');
+        
+        // Só anima se houver múltiplas palavras
+        if (words.length > 2) {
+            heroTitle.textContent = '';
+            heroTitle.style.borderRight = '2px solid var(--purple-gradient-start)';
+            
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let currentWord = '';
+            
+            function typeWriter() {
+                const fullWord = words[wordIndex];
+                
+                if (isDeleting) {
+                    currentWord = fullWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    currentWord = fullWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                heroTitle.textContent = words.slice(0, wordIndex).join(' ') + 
+                                    (wordIndex > 0 ? ' ' : '') + currentWord;
+                
+                let typeSpeed = isDeleting ? 50 : 100;
+                
+                if (!isDeleting && charIndex === fullWord.length) {
+                    if (wordIndex === words.length - 1) {
+                        // Terminou de digitar todas as palavras
+                        heroTitle.style.borderRight = 'none';
+                        return;
+                    }
+                    wordIndex++;
+                    charIndex = 0;
+                    typeSpeed = 200;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex++;
+                    typeSpeed = 500;
+                }
+                
+                setTimeout(typeWriter, typeSpeed);
+            }
+            
+            // Inicia a animação de digitação após um atraso
+            setTimeout(typeWriter, 1000);
+        }
+    } catch (error) {
+        console.error('Error initializing typing animation:', error);
+    }
+}
+
+
+function initParallaxEffects() {
+    try {
+        const parallaxElements = document.querySelectorAll('.hero, .about-hero');
+        
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            parallaxElements.forEach(element => {
+                element.style.transform = `translateY(${rate}px)`;
+            });
+        }
+        
+        // Limita eventos de scroll para melhor performance
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+                setTimeout(() => { ticking = false; }, 16);
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
+    } catch (error) {
+        console.error('Error initializing parallax effects:', error);
+    }
+}
+
+
+function initAdvancedInteractions() {
+    try {
+        // Adiciona efeito ripple a botões e links
+        const interactiveElements = document.querySelectorAll('.contact-link, .nav-link, .tag');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(139, 92, 246, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Adiciona CSS para animação ripple
+        if (!document.querySelector('#ripple-styles')) {
+            const style = document.createElement('style');
+            style.id = 'ripple-styles';
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Adiciona efeito magnético aos cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                const moveX = x * 0.1;
+                const moveY = y * 0.1;
+                
+                this.style.transform = `translateY(-12px) rotateX(5deg) translateX(${moveX}px) translateY(${moveY}px)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateX(0) translateX(0)';
+            });
+        });
+        
+        // Adiciona animação flutuante à imagem de perfil
+        const profileImage = document.querySelector('.about-image img');
+        if (profileImage) {
+            profileImage.style.animation = 'float 6s ease-in-out infinite';
+            
+            // Adiciona CSS para animação flutuante
+            if (!document.querySelector('#float-styles')) {
+                const style = document.createElement('style');
+                style.id = 'float-styles';
+                style.textContent = `
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0px); }
+                        50% { transform: translateY(-10px); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+    } catch (error) {
+        console.error('Error initializing advanced interactions:', error);
+    }
+}
+
+function initScrollProgress() {
+    try {
+        // Cria barra de progresso
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(135deg, var(--purple-gradient-start), var(--purple-gradient-end));
+            z-index: 9999;
+            transition: width 0.1s ease;
+        `;
+        document.body.appendChild(progressBar);
+        
+        // Atualiza o progresso no scroll
+        function updateProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', debounce(updateProgress, 10));
+    } catch (error) {
+        console.error('Error initializing scroll progress:', error);
+    }
+}
+
+// Inicializa funcionalidades adicionais quando a página estiver totalmente carregada
+window.addEventListener('load', function() {
+    initScrollAnimations();
+    initThemeToggle();
+    initPerformanceOptimizations();
+    initScrollProgress();
+});
+
+// Exporta funções para possível uso externo
 window.PortfolioApp = {
     initMobileNavigation,
     initSmoothScrolling,
     initActiveNavigation,
     initCardEffects,
-    initImageErrorHandling
+    initImageErrorHandling,
+    initPageLoadAnimations,
+    initTypingAnimation,
+    initParallaxEffects,
+    initAdvancedInteractions
 };

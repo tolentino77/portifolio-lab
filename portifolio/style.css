@@ -12,6 +12,15 @@
   --accent-blue: #3b82f6;
   --border-color: #333333;
   --hover-bg: #333333;
+  
+  /* Animation Variables */
+  --animation-fast: 0.2s;
+  --animation-normal: 0.3s;
+  --animation-slow: 0.6s;
+  --animation-very-slow: 1s;
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* Reset and Base Styles */
@@ -31,6 +40,90 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  z-index: -1;
+  animation: backgroundFloat 20s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(10px) rotate(-1deg); }
+}
+
+/* Page Load Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp var(--animation-slow) var(--ease-out-cubic) forwards;
+}
+
+.fade-in-delay-1 { animation-delay: 0.1s; }
+.fade-in-delay-2 { animation-delay: 0.2s; }
+.fade-in-delay-3 { animation-delay: 0.3s; }
+.fade-in-delay-4 { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from left animation */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft var(--animation-slow) var(--ease-out-cubic) forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right animation */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight var(--animation-slow) var(--ease-out-cubic) forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in animation */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleIn var(--animation-slow) var(--ease-bounce) forwards;
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .container {
@@ -49,6 +142,14 @@ body {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
+  transform: translateY(-100%);
+  animation: slideDownHeader var(--animation-slow) var(--ease-out-cubic) forwards;
+}
+
+@keyframes slideDownHeader {
+  to {
+    transform: translateY(0);
+  }
 }
 
 .nav {
@@ -64,9 +165,22 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   background: linear-gradient(135deg, var(--purple-gradient-start), var(--purple-gradient-end));
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform var(--animation-normal) var(--ease-bounce);
+}
+
+.nav-brand h1:hover {
+  transform: scale(1.05);
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .nav-list {
@@ -75,33 +189,85 @@ body {
   gap: 2rem;
 }
 
+.nav-item {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown var(--animation-slow) var(--ease-out-cubic) forwards;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-item:nth-child(2) { animation-delay: 0.2s; }
+.nav-item:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .nav-link {
   color: var(--text-gray);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all var(--animation-normal) var(--ease-out-cubic);
   position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+  transition: left var(--animation-normal) ease;
+  z-index: -1;
+}
+
+.nav-link:hover::before {
+  left: 0;
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--text-light);
+  transform: translateY(-2px);
 }
 
 .nav-link.active::after {
   content: '';
   position: absolute;
   bottom: -0.5rem;
-  left: 0;
-  right: 0;
+  left: 50%;
+  width: 0;
   height: 2px;
   background: linear-gradient(135deg, var(--purple-gradient-start), var(--purple-gradient-end));
+  animation: expandUnderline var(--animation-normal) var(--ease-out-cubic) forwards;
+}
+
+@keyframes expandUnderline {
+  to {
+    left: 0;
+    width: 100%;
+  }
 }
 
 .nav-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color var(--animation-normal) ease;
+}
+
+.nav-toggle:hover {
+  background-color: rgba(139, 92, 246, 0.1);
 }
 
 .bar {
@@ -109,7 +275,8 @@ body {
   height: 3px;
   background-color: var(--text-light);
   margin: 3px 0;
-  transition: 0.3s;
+  transition: all var(--animation-normal) var(--ease-out-cubic);
+  border-radius: 2px;
 }
 
 /* Main Content */
@@ -174,13 +341,34 @@ body {
   background: var(--card-dark);
   border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all var(--animation-normal) var(--ease-out-cubic);
   border: 1px solid var(--border-color);
+  position: relative;
+  cursor: pointer;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+  opacity: 0;
+  transition: opacity var(--animation-normal) ease;
+  z-index: 1;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+  transform: translateY(-12px) rotateX(5deg);
+  box-shadow: 
+    0 25px 50px rgba(139, 92, 246, 0.4),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
 }
 
 .card-image {
@@ -190,19 +378,37 @@ body {
   background: linear-gradient(135deg, var(--purple-gradient-start), var(--purple-gradient-end));
 }
 
+.card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.card:hover .card-image::after {
+  transform: translateX(100%);
+}
+
 .card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform var(--animation-slow) var(--ease-out-cubic);
 }
 
 .card:hover .card-image img {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(2deg);
 }
 
 .card-content {
   padding: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .card-title {
@@ -210,12 +416,22 @@ body {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--text-light);
+  transition: color var(--animation-normal) ease;
+}
+
+.card:hover .card-title {
+  color: var(--purple-gradient-start);
 }
 
 .card-description {
   color: var(--text-gray);
   margin-bottom: 1rem;
   line-height: 1.6;
+  transition: color var(--animation-normal) ease;
+}
+
+.card:hover .card-description {
+  color: var(--text-light);
 }
 
 .card-tags {
@@ -231,6 +447,28 @@ body {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
+  transition: all var(--animation-normal) var(--ease-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.card:hover .tag::before {
+  left: 100%;
+}
+
+.card:hover .tag {
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* About Page Styles */
