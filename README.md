@@ -10,6 +10,16 @@ Seu objetivo é disponibilizar exemplos práticos e organizados que evidenciem a
 -
 -
 
+### Portfolio Structure
+```
+website/
+├── index.html      # Página do portifólio mostrando os projetos
+├── about.html      # Sobre experiência e pessoal
+├── style.css       # Styling do portifolio
+└── script.js       # Funcionalidades para nacegação
+```
+
+---
 
 ## Workpage do Portifólio
 <img width="355" height="667" alt="image" src="https://github.com/user-attachments/assets/a14285af-36bc-44d8-984b-39c101fd1787" />
