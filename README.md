@@ -10,5 +10,5 @@ Seu objetivo é disponibilizar exemplos práticos e organizados que evidenciem a
 -
 -
 
-📂 Estrutura de Diretórios
-Estrutura do projeto:
+
+<img width="357" height="664" alt="figma tela inicialo" src="https://github.com/user-attachments/assets/f5830276-38f3-4cf6-af64-12d9bda3ed78" />
