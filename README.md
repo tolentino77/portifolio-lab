@@ -12,8 +12,10 @@ Seu objetivo é disponibilizar exemplos práticos e organizados que evidenciem a
 
 
 ## Workpage do Portifólio
-<img width="357" height="664" alt="figma tela inicialo" src="https://github.com/user-attachments/assets/f5830276-38f3-4cf6-af64-12d9bda3ed78" />
+<img width="450" height="836" alt="image" src="https://github.com/user-attachments/assets/36616bda-278f-4647-aa95-687505631823" />
+
 
 ## Página Sobre do Portifólio
-<img width="356" height="457" alt="figa pagina sobre" src="https://github.com/user-attachments/assets/6b85feda-3042-4dc2-b836-230862e32a29" />
+<img width="488" height="623" alt="image" src="https://github.com/user-attachments/assets/a66aa946-cc46-4c2a-8512-5159cf993699" />
+
 
