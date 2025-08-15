@@ -16,7 +16,7 @@ portifolio/
 ├── index.html      # Página do portifólio mostrando os projetos
 ├── about.html      # Sobre experiência e pessoal
 ├── style.css       # Styling do portifolio
-└── script.js       # Funcionalidades para nacegação
+└── script.js       # Funcionalidades para navegação
 ```
 
 ---
