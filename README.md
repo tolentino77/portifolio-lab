@@ -6,13 +6,13 @@ Seu objetivo é disponibilizar exemplos práticos e organizados que evidenciem a
 🌐 Acesse aqui: [Visualize o Figma.](https://www.figma.com/design/M6GRFmiXeLHltAkO5xO0PH/LABORAT%C3%93RIO-DE-DESENVOLVIMENTO?node-id=1-3&t=hYsukYMv1ZaWR3uL-1)
 
 🚀 Tecnologias Utilizadas
--
--
--
+- HTML
+- CSS
+- JS
 
 ### Portfolio Structure
 ```
-website/
+portifolio/
 ├── index.html      # Página do portifólio mostrando os projetos
 ├── about.html      # Sobre experiência e pessoal
 ├── style.css       # Styling do portifolio
