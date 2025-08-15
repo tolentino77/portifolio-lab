@@ -6,15 +6,9 @@ Seu objetivo é disponibilizar exemplos práticos e organizados que evidenciem a
 🌐 Acesse aqui: Link do portifólio será inserido aqui.
 
 🚀 Tecnologias Utilizadas
-Frontend
-React.js + TypeScript
-Material UI – Componentes e estilização
-HTML5 e CSS3
-Backend
-Python
-LangChain – Integração e processamento de linguagem natural
-Outros
-Git e GitHub – Controle de versão
+-
+-
+-
 
 📂 Estrutura de Diretórios
 Estrutura do projeto:
