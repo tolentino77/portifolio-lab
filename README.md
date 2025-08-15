@@ -15,3 +15,6 @@ Python
 LangChain – Integração e processamento de linguagem natural
 Outros
 Git e GitHub – Controle de versão
+
+📂 Estrutura de Diretórios
+Estrutura do projeto:
