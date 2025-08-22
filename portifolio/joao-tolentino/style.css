@@ -1,4 +1,4 @@
-/* CSS Variables */
+
 :root {
   --primary-dark: #0a0a0a;
   --secondary-dark: #1a1a1a;
@@ -13,7 +13,7 @@
   --border-color: #333333;
   --hover-bg: #333333;
   
-  /* Animation Variables */
+  
   --animation-fast: 0.2s;
   --animation-normal: 0.3s;
   --animation-slow: 0.6s;
@@ -23,7 +23,7 @@
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Reset and Base Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -43,7 +43,7 @@ body {
   position: relative;
 }
 
-/* Animated Background */
+
 body::before {
   content: '';
   position: fixed;
@@ -65,7 +65,7 @@ body::before {
   66% { transform: translateY(10px) rotate(-1deg); }
 }
 
-/* Page Load Animation */
+
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -84,7 +84,7 @@ body::before {
   }
 }
 
-/* Slide in from left animation */
+
 .slide-in-left {
   opacity: 0;
   transform: translateX(-50px);
@@ -98,7 +98,7 @@ body::before {
   }
 }
 
-/* Slide in from right animation */
+
 .slide-in-right {
   opacity: 0;
   transform: translateX(50px);
@@ -112,7 +112,7 @@ body::before {
   }
 }
 
-/* Scale in animation */
+
 .scale-in {
   opacity: 0;
   transform: scale(0.8);
@@ -132,7 +132,6 @@ body::before {
   padding: 0 2rem;
 }
 
-/* Header and Navigation */
 .header {
   position: fixed;
   top: 0;
@@ -279,13 +278,12 @@ body::before {
   border-radius: 2px;
 }
 
-/* Main Content */
+
 .main {
   margin-top: 80px;
   min-height: calc(100vh - 80px);
 }
 
-/* Hero Section */
 .hero {
   padding: 4rem 0;
   text-align: center;
@@ -316,7 +314,6 @@ body::before {
   line-height: 1.8;
 }
 
-/* Projects Section */
 .projects {
   padding: 4rem 0;
 }
@@ -336,7 +333,7 @@ body::before {
   margin-top: 2rem;
 }
 
-/* Card Styles */
+
 .card {
   background: var(--card-dark);
   border-radius: 16px;
@@ -524,7 +521,7 @@ body::before {
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
 }
 
-/* Skills Section */
+
 .skills {
   padding: 4rem 0;
   background-color: var(--secondary-dark);
@@ -565,7 +562,7 @@ body::before {
   border-bottom: none;
 }
 
-/* Experience Section */
+
 .experience {
   padding: 4rem 0;
 }
@@ -668,7 +665,6 @@ body::before {
   transform: translateY(-2px);
 }
 
-/* Footer */
 .footer {
   background-color: var(--primary-dark);
   border-top: 1px solid var(--border-color);
@@ -798,7 +794,6 @@ body::before {
   }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -807,14 +802,12 @@ body::before {
   }
 }
 
-/* Focus styles for accessibility */
 a:focus,
 button:focus {
   outline: 2px solid var(--purple-gradient-start);
   outline-offset: 2px;
 }
 
-/* High contrast mode support */
 @media (prefers-contrast: high) {
   :root {
     --text-gray: #ffffff;
