@@ -11,9 +11,90 @@ document.addEventListener('DOMContentLoaded', function() {
     initTypingAnimation();
     initParallaxEffects();
     initAdvancedInteractions();
+    initScrollProgress(); 
+    initTranslation(); 
 });
 
 
+const translations = {
+    pt: {
+        pageTitle: "Sobre - LABORATÓRIO DE DESENVOLVIMENTO",
+        portfolio: "Portfolio",
+        about: "Sobre",
+        contact: "Contato",
+        aboutTitle: "Olá, eu sou o Thiago Henrique",
+        aboutSubtitle: "Sou estudante de Engenharia de Software",
+        aboutText: "Durante minha trajetória acadêmica, venho desenvolvendo habilidades sólidas em programação, estruturas de dados, algoritmos e engenharia de requisitos. Tenho experiência com linguagens como Java, Python, JavaScript, e venho explorando também áreas como desenvolvimento web, banco de dados e metodologias ágeis. Meu objetivo é aplicar o conhecimento adquirido em sala de aula e nos meus projetos pessoais para resolver problemas reais, contribuindo para soluções eficientes, escaláveis e bem estruturadas. Sou uma pessoa curiosa, comprometida e sempre em busca de novos aprendizados.",
+        skillsTitle: "Habilidades & Tecnologias",
+        frontend: "Frontend",
+        backend: "Backend",
+        designTools: "Design & Tools",
+        experienceTitle: "Experiência",
+        experienceDate: "06/2024",
+        jobTitle: "Desenvolvedor fullstack",
+        company: "Sinesys Soluções em Tecnologia LTDA",
+        jobDescription: "Implementação de tecnologias educacionais, com orientação e capacitação de professores no uso de plataformas digitais para aprimorar o ensino. Responsável por ajustes avançados de software e hardware em dispositivos eletrônicos dos alunos, assegurando acessibilidade e funcionalidade, além de promover a incorporação de novas ferramentas digitais para enriquecer a experiência educacional.",
+        contactTitle: "Vamos Conversar?",
+        contactDescription: "Estou sempre aberto a novos desafios e oportunidades de colaboração.",
+        footerText: "© 2025 Laboratório de Desenvolvimento de Software. Todos os direitos reservados."
+    },
+    en: {
+        pageTitle: "About - SOFTWARE DEVELOPMENT LABORATORY",
+        portfolio: "Portfolio",
+        about: "About",
+        contact: "Contact",
+        aboutTitle: "Hi, I'm Thiago Henrique",
+        aboutSubtitle: "I'm a Software Engineering Student",
+        aboutText: "Throughout my academic journey, I've developed solid skills in programming, data structures, algorithms, and requirements engineering. I have experience with languages like Java, Python, JavaScript, and I'm also exploring areas such as web development, databases, and agile methodologies. My goal is to apply the knowledge gained in the classroom and in my personal projects to solve real-world problems, contributing to efficient, scalable, and well-structured solutions. I am a curious and committed person, always seeking new knowledge.",
+        skillsTitle: "Skills & Technologies",
+        frontend: "Frontend",
+        backend: "Backend",
+        designTools: "Design & Tools",
+        experienceTitle: "Experience",
+        experienceDate: "10/2024",
+        jobTitle: "Technology Mediator (Support)",
+        company: "City Hall of Nova Lima",
+        jobDescription: "Implementation of educational technologies, with guidance and training for teachers on the use of digital platforms to enhance teaching. Responsible for advanced software and hardware adjustments on students' electronic devices, ensuring accessibility and functionality, in addition to promoting the incorporation of new digital tools to enrich the educational experience.",
+        contactTitle: "Let's Talk?",
+        contactDescription: "I'm always open to new challenges and collaboration opportunities.",
+        footerText: "© 2025 Software Development Laboratory. All rights reserved."
+    }
+};
+
+let currentLang = "pt";
+
+// --- tradução ---
+function applyTranslation() {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[currentLang] && translations[currentLang][key]) {
+            el.textContent = translations[currentLang][key];
+        } else if (key === "pageTitle") {
+            document.title = translations[currentLang][key];
+        }
+    });
+}
+
+
+function initTranslation() {
+    const langToggle = document.getElementById("lang-toggle");
+    if (langToggle) {
+        langToggle.textContent = currentLang === "pt" ? "EN" : "PT";
+        applyTranslation();
+    }
+}
+
+// --- Evento do botão de tradução ---
+const langToggle = document.getElementById("lang-toggle");
+if (langToggle) {
+    langToggle.addEventListener("click", () => {
+        currentLang = currentLang === "pt" ? "en" : "pt";
+        initTranslation(); // Alterna o idioma e aplica a tradução
+    });
+}
+
+
+// --- Funções JavaScript originais (não mexa) ---
 function initMobileNavigation() {
     try {
         const navToggle = document.getElementById('nav-toggle');
@@ -21,12 +102,10 @@ function initMobileNavigation() {
         
         if (navToggle && navMenu) {
             navToggle.addEventListener('click', function() {
-                // Alterna a classe ativa no menu de navegação
                 navMenu.classList.toggle('active');
                 navToggle.classList.toggle('active');
             });
 
-            // Fecha o menu mobile ao clicar nos links de navegação
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -35,7 +114,6 @@ function initMobileNavigation() {
                 });
             });
 
-            // Fecha o menu mobile ao clicar fora dele
             document.addEventListener('click', function(event) {
                 const isClickInsideNav = navMenu.contains(event.target) || navToggle.contains(event.target);
                 
@@ -59,7 +137,6 @@ function initSmoothScrolling() {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 
-                // Pula se o href for apenas "#"
                 if (href === '#') return;
                 
                 const targetElement = document.querySelector(href);
@@ -91,10 +168,8 @@ function initActiveNavigation() {
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
             
-            // Remove a classe ativa existente
             link.classList.remove('active');
             
-            // Adiciona a classe ativa ao link da página atual
             if (linkHref === currentPage || 
                 (currentPage === '' && linkHref === 'index.html') ||
                 (currentPage === 'index.html' && linkHref === 'index.html') ||
@@ -113,19 +188,15 @@ function initCardEffects() {
         const cards = document.querySelectorAll('.card');
         
         cards.forEach(card => {
-            // Adiciona efeito ao passar o mouse
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-8px) scale(1.02)';
             });
             
-            // Adiciona efeito ao retirar o mouse
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
             
-            // Adiciona efeito de clique para melhor interação mobile
             card.addEventListener('click', function() {
-                // Adiciona um efeito sutil de pulso
                 this.style.transform = 'translateY(-8px) scale(0.98)';
                 
                 setTimeout(() => {
@@ -144,11 +215,9 @@ function initImageErrorHandling() {
         const images = document.querySelectorAll('img');
         
         images.forEach(img => {
-            // Se a imagem já tem um manipulador de erro, pula
             if (img.hasAttribute('onerror')) return;
             
             img.addEventListener('error', function() {
-                // Cria um div placeholder com fundo gradiente
                 const placeholder = document.createElement('div');
                 placeholder.style.cssText = `
                     width: 100%;
@@ -165,7 +234,6 @@ function initImageErrorHandling() {
                 `;
                 placeholder.textContent = this.alt || 'Imagem não disponível';
                 
-                // Substitui a imagem pelo placeholder
                 if (this.parentNode) {
                     this.parentNode.replaceChild(placeholder, this);
                 }
@@ -192,7 +260,6 @@ function debounce(func, wait) {
 
 function initScrollAnimations() {
     try {
-        // Intersection Observer para animações de fade-in
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -207,7 +274,6 @@ function initScrollAnimations() {
             });
         }, observerOptions);
         
-        // Observa elementos para animação
         const animatedElements = document.querySelectorAll('.card, .timeline-item, .skill-category');
         animatedElements.forEach(el => {
             el.style.opacity = '0';
@@ -223,13 +289,9 @@ function initScrollAnimations() {
 
 function initThemeToggle() {
     try {
-        // Esta função pode ser expandida para adicionar alternância de tema claro/escuro
-        // Por enquanto, é um placeholder para futuras melhorias
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
         
-        // Escuta mudanças na preferência de tema do sistema
         prefersDark.addEventListener('change', (e) => {
-            // Futuro: implementar lógica de alternância de tema
             console.log('System theme changed to:', e.matches ? 'dark' : 'light');
         });
     } catch (error) {
@@ -240,7 +302,6 @@ function initThemeToggle() {
 
 function initPerformanceOptimizations() {
     try {
-        // Carregamento lazy para imagens (se não suportado nativamente)
         if ('loading' in HTMLImageElement.prototype) {
             const images = document.querySelectorAll('img');
             images.forEach(img => {
@@ -248,7 +309,6 @@ function initPerformanceOptimizations() {
             });
         }
         
-        // Pré-carrega recursos críticos
         const criticalResources = [
             'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
         ];
@@ -265,16 +325,14 @@ function initPerformanceOptimizations() {
     }
 }
 
-// Inicializa funcionalidades adicionais quando a página estiver totalmente carregada
 window.addEventListener('load', function() {
     initScrollAnimations();
     initThemeToggle();
     initPerformanceOptimizations();
+    initScrollProgress();
 });
 
-// Manipula eventos de redimensionamento
 window.addEventListener('resize', debounce(function() {
-    // Fecha o menu mobile ao redimensionar para tela maior
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     
@@ -287,7 +345,6 @@ window.addEventListener('resize', debounce(function() {
 
 function initPageLoadAnimations() {
     try {
-        // Adiciona classes de animação aos elementos
         const heroTitle = document.querySelector('.hero-title');
         const heroSubtitle = document.querySelector('.hero-subtitle');
         const heroDescription = document.querySelector('.hero-description');
@@ -301,7 +358,6 @@ function initPageLoadAnimations() {
             title.classList.add('fade-in', `fade-in-delay-${Math.min(index + 1, 4)}`);
         });
         
-        // Adiciona animação escalonada aos cards
         const cards = document.querySelectorAll('.card');
         cards.forEach((card, index) => {
             card.style.opacity = '0';
@@ -329,7 +385,6 @@ function initTypingAnimation() {
         const originalText = heroTitle.textContent;
         const words = originalText.split(' ');
         
-        // Só anima se houver múltiplas palavras
         if (words.length > 2) {
             heroTitle.textContent = '';
             heroTitle.style.borderRight = '2px solid var(--purple-gradient-start)';
@@ -351,13 +406,12 @@ function initTypingAnimation() {
                 }
                 
                 heroTitle.textContent = words.slice(0, wordIndex).join(' ') + 
-                                    (wordIndex > 0 ? ' ' : '') + currentWord;
+                                        (wordIndex > 0 ? ' ' : '') + currentWord;
                 
                 let typeSpeed = isDeleting ? 50 : 100;
                 
                 if (!isDeleting && charIndex === fullWord.length) {
                     if (wordIndex === words.length - 1) {
-                        // Terminou de digitar todas as palavras
                         heroTitle.style.borderRight = 'none';
                         return;
                     }
@@ -373,7 +427,6 @@ function initTypingAnimation() {
                 setTimeout(typeWriter, typeSpeed);
             }
             
-            // Inicia a animação de digitação após um atraso
             setTimeout(typeWriter, 1000);
         }
     } catch (error) {
@@ -395,7 +448,6 @@ function initParallaxEffects() {
             });
         }
         
-        // Limita eventos de scroll para melhor performance
         let ticking = false;
         function requestTick() {
             if (!ticking) {
@@ -414,7 +466,6 @@ function initParallaxEffects() {
 
 function initAdvancedInteractions() {
     try {
-        // Adiciona efeito ripple a botões e links
         const interactiveElements = document.querySelectorAll('.contact-link, .nav-link, .tag');
         
         interactiveElements.forEach(element => {
@@ -448,7 +499,6 @@ function initAdvancedInteractions() {
             });
         });
         
-        // Adiciona CSS para animação ripple
         if (!document.querySelector('#ripple-styles')) {
             const style = document.createElement('style');
             style.id = 'ripple-styles';
@@ -463,7 +513,6 @@ function initAdvancedInteractions() {
             document.head.appendChild(style);
         }
         
-        // Adiciona efeito magnético aos cards
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
             card.addEventListener('mousemove', function(e) {
@@ -482,12 +531,10 @@ function initAdvancedInteractions() {
             });
         });
         
-        // Adiciona animação flutuante à imagem de perfil
         const profileImage = document.querySelector('.about-image img');
         if (profileImage) {
             profileImage.style.animation = 'float 6s ease-in-out infinite';
             
-            // Adiciona CSS para animação flutuante
             if (!document.querySelector('#float-styles')) {
                 const style = document.createElement('style');
                 style.id = 'float-styles';
@@ -508,7 +555,6 @@ function initAdvancedInteractions() {
 
 function initScrollProgress() {
     try {
-        // Cria barra de progresso
         const progressBar = document.createElement('div');
         progressBar.style.cssText = `
             position: fixed;
@@ -522,7 +568,6 @@ function initScrollProgress() {
         `;
         document.body.appendChild(progressBar);
         
-        // Atualiza o progresso no scroll
         function updateProgress() {
             const scrollTop = window.pageYOffset;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -536,15 +581,7 @@ function initScrollProgress() {
     }
 }
 
-// Inicializa funcionalidades adicionais quando a página estiver totalmente carregada
-window.addEventListener('load', function() {
-    initScrollAnimations();
-    initThemeToggle();
-    initPerformanceOptimizations();
-    initScrollProgress();
-});
 
-// Exporta funções para possível uso externo
 window.PortfolioApp = {
     initMobileNavigation,
     initSmoothScrolling,

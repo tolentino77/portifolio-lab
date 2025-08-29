@@ -132,7 +132,6 @@ body::before {
   padding: 0 2rem;
 }
 
-
 .header {
   position: fixed;
   top: 0;
@@ -191,7 +190,7 @@ body::before {
 
 .nav-item {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-100px);
   animation: fadeInDown var(--animation-slow) var(--ease-out-cubic) forwards;
 }
 
@@ -217,17 +216,7 @@ body::before {
   overflow: hidden;
 }
 
-.nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
-  transition: left var(--animation-normal) ease;
-  z-index: -1;
-}
+
 
 .nav-link:hover::before {
   left: 0;
@@ -315,7 +304,6 @@ body::before {
   line-height: 1.8;
 }
 
-
 .projects {
   padding: 4rem 0;
 }
@@ -335,7 +323,7 @@ body::before {
   margin-top: 2rem;
 }
 
-/* Card Styles */
+
 .card {
   background: var(--card-dark);
   border-radius: 16px;
@@ -470,7 +458,7 @@ body::before {
   transform: translateY(-2px) scale(1.05);
 }
 
-
+/* About Page Styles */
 .about-hero {
   padding: 4rem 0;
 }
@@ -564,7 +552,7 @@ body::before {
   border-bottom: none;
 }
 
-/* Experience Section */
+
 .experience {
   padding: 4rem 0;
 }
@@ -628,6 +616,7 @@ body::before {
   line-height: 1.6;
 }
 
+/* Contact Section */
 .contact {
   padding: 4rem 0;
   background-color: var(--secondary-dark);
@@ -666,7 +655,6 @@ body::before {
   transform: translateY(-2px);
 }
 
-/* Footer */
 .footer {
   background-color: var(--primary-dark);
   border-top: 1px solid var(--border-color);
@@ -679,7 +667,7 @@ body::before {
   font-size: 0.9rem;
 }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
@@ -796,7 +784,6 @@ body::before {
   }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -805,13 +792,11 @@ body::before {
   }
 }
 
-
 a:focus,
 button:focus {
   outline: 2px solid var(--purple-gradient-start);
   outline-offset: 2px;
 }
-
 
 @media (prefers-contrast: high) {
   :root {
@@ -819,4 +804,22 @@ button:focus {
     --text-muted: #cccccc;
     --border-color: #666666;
   }
+}
+
+.lang-btn {
+  margin-left: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid var(--purple-gradient-start);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: linear-gradient(135deg, var(--purple-gradient-start), var(--purple-gradient-end));
+  color: white;
+  transform: translateY(-2px);
 }
