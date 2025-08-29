@@ -29,7 +29,11 @@ portifolio/
 ## Página Sobre do Portifólio
 <img width="355" height="454" alt="image" src="https://github.com/user-attachments/assets/89c14274-1286-43a6-abbf-727bdac332af" />
 
-## Vercel
-Reis
+## Deployments
+Reis:
 https://portifolio-lab-fibj.vercel.app/ 
+
+João Tolentino:
+https://portifolio-prof.vercel.app/
+
 
