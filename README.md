@@ -36,4 +36,7 @@ https://portifolio-lab-fibj.vercel.app/
 João Tolentino:
 https://portifolio-prof.vercel.app/
 
+Thiago Lacerda:
+https://portifolio-lab-thiago.vercel.app/
+
 
