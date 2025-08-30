@@ -40,4 +40,4 @@ Thiago Lacerda:
 https://portifolio-lab-thiago.vercel.app/
 
 Victhor Ribeiro:
-victhorribeiro.vercel.app/
+https://victhorribeiro.vercel.app/
