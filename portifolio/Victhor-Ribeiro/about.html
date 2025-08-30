@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">Sobre - LABORATÓRIO DE DESENVOLVIMENTO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>VSRB</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link" data-i18n="portfolio">Portfólio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active" data-i18n="about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contato" class="nav-link" data-i18n="contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <button id="lang-toggle" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text slide-in-left">
+                        <h2 class="about-title" data-i18n="aboutTitle">Olá, eu sou o Victhor Ribeiro</h2>
+                        <p class="about-subtitle" data-i18n="aboutSubtitle">Sou estudante de Engenharia de Software na PUC Minas</p>
+                        <div class="about-description">
+                            <p data-i18n="aboutText">Atuo como Analista Desenvolvedor de Sistemas, com experiência no desenvolvimento de chatbots utilizando Blip e Microsoft LUIS, além de integração via APIs com JavaScript. Atualmente, sou especializado em soluções na plataforma Salesforce, focando na automação de processos nas áreas de Vendas e Marketing, incluindo integração com HubSpot, criação de painéis, regras de validação e fluxos automatizados.</p>
+                        </div>
+                    </div>
+                    <div class="about-image slide-in-right">
+                    <img src="images/victhor.jpg" alt="Foto profissional de desenvolvedor em estilo minimalista moderno" onerror="this.onerror=null; this.src='';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container">
+                <h3 class="section-title" data-i18n="skillsTitle">Habilidades & Tecnologias</h3>
+                <div class="skills-grid">
+                    <div class="skill-category fade-in fade-in-delay-1">
+                        <h4 class="skill-title" data-i18n="frontend">Frontend</h4>
+                        <ul class="skill-list">
+                            <li>TypeScript</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>LWC</li>
+                            <li>Visualforce</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4 class="skill-title" data-i18n="backend">Backend</h4>
+                        <ul class="skill-list">
+                            <li>Node.js</li>
+                            <li>Apex</li>
+                            <li>PostgreSQL</li>
+                            <li>Java</li>
+                            <li>Springboot</li>
+                            <li>REST APIs</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4 class="skill-title" data-i18n="designTools">Design & Tools</h4>
+                        <ul class="skill-list">
+                            <li>Figma</li>
+                            <li>Git & GitHub</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contato">
+            <div class="container">
+                <h3 class="section-title" data-i18n="contactTitle">Vamos Conversar?</h3>
+                <div class="contact-content">
+                    <p class="contact-description" data-i18n="contactDescription">Estou sempre aberto a novos desafios.</p>
+                    <div class="contact-links">
+                        <a href="victhor.ribeiro@hotmail.com" class="contact-link">victhor.ribeiro@hotmail.com</a>
+                        <a href="https://www.linkedin.com/in/victhor-ribeiro/" class="contact-link">LinkedIn</a>
+                        <a href="https://github.com/victhorribeiro" class="contact-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Victhor Sebastian Ribeiro De Brito. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
