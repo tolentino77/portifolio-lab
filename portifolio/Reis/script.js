@@ -1,6 +1,6 @@
-// Aguarda o DOM ser totalmente carregado
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializa todas as funcionalidades
+    
     initMobileNavigation();
     initSmoothScrolling();
     initActiveNavigation();
@@ -127,7 +127,7 @@ const langToggle = document.getElementById("lang-toggle");
 if (langToggle) {
     langToggle.addEventListener("click", () => {
         currentLang = currentLang === "pt" ? "en" : "pt";
-        initTranslation(); // Alterna o idioma e aplica a tradução
+        initTranslation(); 
     });
 }
 

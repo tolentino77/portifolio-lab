@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="indexPageTitle">LABORATÓRIO DE DESENVOLVIMENTO - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>GR</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#hero" class="nav-link active" data-i18n="portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" data-i18n="about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contato" class="nav-link" data-i18n="contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <button id="lang-toggle" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <h2 class="hero-title" data-i18n="heroTitle">Olá, eu sou o Gabriel Reis</h2>
+                <p class="hero-subtitle" data-i18n="heroSubtitle">Estudante de Engenharia de Software</p>
+                <div class="hero-description">
+                    <p data-i18n="heroDescription">Sou estudante de Engenharia de Software na PUC Minas, atualmente no 4º período do curso. Tenho paixão por tecnologia, desenvolvimento de sistemas e pela constante evolução do mundo digital.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <h3 class="section-title" data-i18n="projectsTitle">Meus Projetos</h3>
+                <div class="projects-grid">
+                    <div class="card fade-in">
+                        <div class="card-image">
+                            <img src="/placeholder.svg" alt="" >
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title" data-i18n="project1Title">Optima</h4>
+                            <p class="card-description" data-i18n="project1Description">Durante o terceiro periodo, desenvolvi juntamente com meu grupo um projeto em React e Node.js para otimização de processos internos de uma empresa.</p>
+                            <div class="card-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/placeholder.svg" alt="">
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title" data-i18n="project2Title">G-agro</h4>
+                            <p class="card-description" data-i18n="project2Description">A G-agro é uma plataforma desenvolvida para otimizar a gestão de propriedades rurais, integrando tecnologias IoT para monitoramento de culturas e automação de processos agrícolas.</p>
+                            <div class="card-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Figma</span>
+                                <span class="tag">Java</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/placeholder.svg" alt="" >
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title" data-i18n="project3Title">O Basico Bem Feito</h4>
+                            <p class="card-description" data-i18n="project3Description">Um projeto que visa informar e ajudar o usuario o conceder o fisico que deseja e a melhorar sua qualidade de vida, alem de ensinar sobre hábitos saudáveis.</p>
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/placeholder.svg" alt="" >
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title" data-i18n="project4Title">Projeto 4</h4>
+                            <p class="card-description" data-i18n="project4Description">Descrição</p>
+                            <div class="card-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Stripe</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-hero" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text slide-in-left">
+                        <h2 class="about-title" data-i18n="aboutTitle">Olá, eu sou o Gabriel Reis</h2>
+                        <p class="about-subtitle" data-i18n="aboutSubtitle">Sou estudante de Engenharia de Software</p>
+                        <div class="about-description">
+                            <p data-i18n="aboutText">Fascinado pela forma como a tecnologia resolve desafios do dia a dia, mergulhei nos estudos de programação e engenharia de software. Com uma base sólida em algoritmos e estruturas de dados, venho aplicando meu conhecimento em projetos com Java, React e JavaScript para criar soluções funcionais e intuitivas. Mais do que apenas código, busco entender o 'porquê' de cada projeto, utilizando engenharia de requisitos e metodologias ágeis para garantir que a solução final seja realmente impactante. Estou em constante aprendizado, movido pela curiosidade de transformar ideias em realidade.</p>
+                        </div>
+                    </div>
+                    <div class="about-image slide-in-right">
+                        <img src="/placeholder.svg?height=300&width=300" alt="Foto profissional de desenvolvedor em estilo minimalista moderno">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills" id="skills">
+            <div class="container">
+                <h3 class="section-title" data-i18n="skillsTitle">Habilidades & Tecnologias</h3>
+                <div class="skills-grid">
+                    <div class="skill-category fade-in fade-in-delay-1">
+                        <h4 class="skill-title" data-i18n="frontend">Frontend</h4>
+                        <ul class="skill-list">
+                            <li>React & Next.js</li>
+                            <li>TypeScript</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>Tailwind CSS</li>
+                            <li>Vue.js</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4 class="skill-title" data-i18n="backend">Backend</h4>
+                        <ul class="skill-list">
+                            <li>Node.js</li>
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                            <li>REST APIs</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4 class="skill-title" data-i18n="designTools">Design & Tools</h4>
+                        <ul class="skill-list">
+                            <li>Figma</li>
+                            <li>Git & GitHub</li>
+                            <li>Docker</li>
+                            <li>AWS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience" id="experience">
+            <div class="container">
+                <h3 class="section-title" data-i18n="experienceTitle">Experiência</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-i18n="experienceDate">04/2025</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title" data-i18n="jobTitle">Tecnico de informatica (Junior)</h4>
+                            <p class="timeline-company" data-i18n="company">Compurem informatica</p>
+                            <p class="timeline-description" data-i18n="jobDescription">Realizo manutenção de computadores, suporte técnico e atendimento ao cliente, Alem de configurar servidores e banco de dados de forma eficiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contato">
+            <div class="container">
+                <h3 class="section-title" data-i18n="contactTitle">Vamos Conversar?</h3>
+                <div class="contact-content">
+                    <p class="contact-description" data-i18n="contactDescription">Estou sempre aberto a novos desafios e oportunidades de colaboração.</p>
+                    <div class="contact-links">
+                        <a href="mailto:bielreis222gabriel@gmail.com" class="contact-link">bielreis222gabriel@gmail.com</a>
+                        <a href="https://www.linkedin.com/in/gabriel-reis-6b4416279" class="contact-link">LinkedIn</a>
+                        <a href="https://github.com/ReisBiel23" class="contact-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footerText">&copy; 2025 Laboratório de Desenvolvimento de Software. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
