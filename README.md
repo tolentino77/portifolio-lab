@@ -37,7 +37,7 @@ João Tolentino:
 https://portifolio-prof.vercel.app/
 
 Thiago Lacerda:
-https://portifolio-lab-thiago.vercel.app/
+https://portifoliothiago-lab.vercel.app/
 
 Victhor Ribeiro:
 https://victhorribeiro.vercel.app/
